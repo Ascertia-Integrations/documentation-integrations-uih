@@ -235,6 +235,36 @@ From the repository root, build the site:
 npm run build
 ```
 
+From the repository root, build a combined PDF for the docs version in `docs/`:
+
+```bash
+npm run build:pdf
+```
+
+By default this exports the Docusaurus `current` version into `build/<site>-current.pdf`.
+
+Useful overrides:
+
+- export a released version instead of `current`:
+
+```bash
+npm run build:pdf -- --version=latest
+```
+
+- export a specific version:
+
+```bash
+npm run build:pdf -- --version=2.3.0
+```
+
+- choose a custom output path:
+
+```bash
+npm run build:pdf -- --output=artifacts/docs.pdf
+```
+
+The exporter uses `docs-to-pdf` against the local Docusaurus build and expects a locally installed Chrome or Chromium binary. If it is not found automatically, set `PUPPETEER_EXECUTABLE_PATH` before running the command.
+
 ## Working model for teams
 
 - Write product documentation in `docs/`
